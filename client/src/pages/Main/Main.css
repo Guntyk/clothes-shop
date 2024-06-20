@@ -1,0 +1,70 @@
+.page {
+  margin-top: 10rem;
+  position: relative;
+}
+
+.main-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.clothes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  padding: 1rem;
+  width: 30rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card img {
+  object-fit: contain;
+  width: 100%;
+  height: 80%;
+}
+
+.card .name {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.card .size {
+  margin: 0.3rem 0;
+  text-transform: uppercase;
+}
+
+.card .sex::first-letter {
+  text-transform: uppercase;
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  border: 0.1rem solid #000;
+}
+.btn:hover {
+  background: #f2f2f2;
+}
+.btn:active {
+  background: #e6e6e6;
+}
+
+.no-results {
+  margin-top: 5rem;
+  font-size: 1.6rem;
+}
