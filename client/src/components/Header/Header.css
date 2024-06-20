@@ -27,8 +27,26 @@
   height: 100%;
 }
 
-.navlinks {
+.navigation-links {
   display: flex;
-  align-items: center;
   gap: 3rem;
+  font-size: 1.4rem;
+}
+
+.navigation-links li {
+  position: relative;
+}
+.navigation-links li::before {
+  content: '';
+  position: absolute;
+  bottom: -0.35rem;
+  left: 50%;
+  width: 0;
+  height: 0.1rem;
+  background: #000;
+  transform: translateX(-50%);
+  transition: 0.2s;
+}
+.navigation-links li:hover::before {
+  width: 100%;
 }

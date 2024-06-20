@@ -51,14 +51,9 @@ export default function Main() {
     <article className='page'>
       <div className='main-page-header'>
         <h2 className='title'>Знайди свій стиль</h2>
-        <div className='buttons-wrapper'>
-          <button className='btn' onClick={toggleFiltersModal}>
-            Фільтри
-          </button>
-          <Link className='btn' to='/cart'>
-            Корзина
-          </Link>
-        </div>
+        <button className='btn' onClick={toggleFiltersModal}>
+          Фільтри
+        </button>
       </div>
       <Filters
         filters={filters}
