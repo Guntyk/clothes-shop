@@ -9,11 +9,16 @@
 }
 
 .order {
-  width: 100%;
+  min-width: 60%;
+  max-width: 90%;
 }
 
 .shopping-cart-page .clothing-detail {
   height: 30rem;
+}
+
+.shopping-cart-page .clothing-image {
+  width: 25rem;
 }
 
 .shopping-cart-page .details {

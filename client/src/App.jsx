@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Main from './pages/Main/Main';
+import Catalog from './pages/Catalog/Catalog';
 import ClothingDetail from './pages/ClothingDetail/ClothingDetail';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 
@@ -11,7 +11,7 @@ function App() {
       <div className='container'>
         <Switch>
           <Route path='/' exact>
-            <Main />
+            <Catalog />
           </Route>
           <Route path='/clothing/:id' exact>
             <ClothingDetail />

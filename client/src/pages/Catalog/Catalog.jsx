@@ -1,12 +1,11 @@
-import { useHistory, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import * as clothesSlice from '../../redux/features/clothesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Filters from '../../components/Filters/Filters';
-import './Main.css';
+import './Catalog.css';
+import ClothingCard from './ClothingCard/ClothingCard';
 
-export default function Main() {
-  const { push } = useHistory();
+export default function Catalog() {
   const dispatch = useDispatch();
 
   const isClothesRequestLoading = useSelector((state) => state.clothes.isLoading);
@@ -63,15 +62,7 @@ export default function Main() {
       />
       <div className='clothes-wrapper'>
         {filteredData.length > 0 ? (
-          filteredData.map((item) => (
-            <div className='card' onClick={() => push(`/clothing/${item.id}`)} key={item.id}>
-              <img src={item.image_url} alt='coat' />
-              <div className='name'>{item.name}</div>
-              <div className='size'>{item.size}</div>
-              <div className='sex'>{item.sex}</div>
-              <div className='price'>${item.price}</div>
-            </div>
-          ))
+          filteredData.map((item) => <ClothingCard clothing={item} key={item.id} />)
         ) : isClothesRequestLoading ? (
           <p className='no-results'>Завантаження</p>
         ) : (

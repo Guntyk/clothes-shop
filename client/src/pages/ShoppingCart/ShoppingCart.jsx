@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useShoppingCart from 'hooks/useShoppingCart';
 import caretRight from 'icons/caret-right.svg';
 import caretLeft from 'icons/caret-left.svg';
@@ -67,9 +67,11 @@ export default function ShoppingCart() {
       <div className='order'>
         {order.length > 0
           ? order.map((item) => (
-              <div key={item.id}>
+              <React.Fragment key={item.id}>
                 <section className='clothing-detail'>
-                  <img src={item.image_url} alt={item.name} className='clothing-image' />
+                  <div className='img-wrapper'>
+                    <img src={item.image_url} alt={item.name} className='clothing-image' />
+                  </div>
                   <div className='wrapper'>
                     <div className='details'>
                       <div className='item-header'>
@@ -111,7 +113,7 @@ export default function ShoppingCart() {
                   </div>
                 </section>
                 <hr className='line' />
-              </div>
+              </React.Fragment>
             ))
           : 'Корзина пуста'}
       </div>
