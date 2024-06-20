@@ -10,7 +10,7 @@ export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
     { key: 'pants', name: 'Штани' },
   ];
   const genders = [
-    { key: 'universal', name: 'Універсальне' },
+    { key: 'unisex', name: 'Унісекс' },
     { key: 'male', name: 'Чоловіче' },
     { key: 'female', name: 'Жіноче' },
   ];

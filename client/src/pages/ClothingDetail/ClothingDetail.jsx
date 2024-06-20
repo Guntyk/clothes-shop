@@ -56,10 +56,13 @@ export default function ClothingDetail() {
                 <h2 className='name'>{currentClothing.name}</h2>
                 <div className='characteristics'>
                   <p>
-                    Gender: <span className='sex'>{currentClothing.gender}</span>
+                    Sex: <span className='sex'>{currentClothing.sex}</span>
                   </p>
                   <p>
                     Size: <span className='size'>{currentClothing.size}</span>
+                  </p>
+                  <p>
+                    Price: <span className='price'>${currentClothing.price.split('.')[0]}</span>
                   </p>
                 </div>
               </div>
