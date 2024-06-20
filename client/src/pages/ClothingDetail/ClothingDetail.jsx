@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import useShoppingCart from 'hooks/useShoppingCart';
 import * as clothesSlice from '../../redux/features/clothesSlice';
-import { Link } from 'react-router-dom';
-import useShoppingCart from '../../hooks/useShoppingCart';
-import arrowLeft from '../../icons/arrow-left.svg';
+import { sexOptions } from 'constants/sexOptions';
+import arrowLeft from 'icons/arrow-left.svg';
 import './ClothingDetail.css';
 
 export default function ClothingDetail() {
@@ -56,13 +56,13 @@ export default function ClothingDetail() {
                 <h2 className='name'>{currentClothing.name}</h2>
                 <div className='characteristics'>
                   <p>
-                    Sex: <span className='sex'>{currentClothing.sex}</span>
+                    Категорія: <span className='sex'>{sexOptions.find(({ key }) => key === currentClothing.sex).name}</span>
                   </p>
                   <p>
-                    Size: <span className='size'>{currentClothing.size}</span>
+                    Розмір: <span className='size'>{currentClothing.size}</span>
                   </p>
                   <p>
-                    Price: <span className='price'>${currentClothing.price}</span>
+                    Ціна: <span className='price'>${currentClothing.price}</span>
                   </p>
                 </div>
               </div>

@@ -14,20 +14,20 @@ export default function Catalog() {
 
   const [filters, setFilters] = useState({
     types: [],
-    genders: [],
+    sexOptions: [],
     sizes: [],
   });
   const [filteredData, setFilteredData] = useState([]);
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false);
 
   const matchesFilters = (item) => {
-    const { types, genders, sizes } = filters;
+    const { types, sexOptions, sizes } = filters;
 
     const matchesType = types.length === 0 || types.includes(item.type);
-    const matchesGender = genders.length === 0 || genders.includes(item.sex);
+    const matchesSex = sexOptions.length === 0 || sexOptions.includes(item.sex);
     const matchesSize = sizes.length === 0 || sizes.includes(item.size);
 
-    return matchesType && matchesGender && matchesSize;
+    return matchesType && matchesSex && matchesSize;
   };
 
   const toggleFiltersModal = () => {

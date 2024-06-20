@@ -44,10 +44,6 @@
   text-transform: uppercase;
 }
 
-.card .sex::first-letter {
-  text-transform: uppercase;
-}
-
 .card .price {
   margin-top: 0.3rem;
   font-size: 1.2rem;

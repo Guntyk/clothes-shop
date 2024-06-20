@@ -1,6 +1,7 @@
 import cn from 'classnames';
-import './Filters.css';
+import { sexOptions } from 'constants/sexOptions';
 import cross from '../../icons/cross.svg';
+import './Filters.css';
 
 export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
   const types = [
@@ -8,11 +9,6 @@ export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
     { key: 'coat', name: 'Кофти' },
     { key: 't-shirt', name: 'Футболки' },
     { key: 'pants', name: 'Штани' },
-  ];
-  const genders = [
-    { key: 'unisex', name: 'Унісекс' },
-    { key: 'male', name: 'Чоловіче' },
-    { key: 'female', name: 'Жіноче' },
   ];
   const sizes = [
     { key: 'xs', name: 'XS' },
@@ -35,7 +31,7 @@ export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
   const handleResetFilters = () => {
     setFilters({
       types: [],
-      genders: [],
+      sexOptions: [],
       sizes: [],
     });
   };
@@ -54,7 +50,7 @@ export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
           </button>
         </div>
         <hr className='line' />
-        {[types, genders, sizes].map((filtersType, index) => (
+        {[types, sexOptions, sizes].map((filtersType, index) => (
           <div key={index}>
             <ul className='filters-list'>
               {filtersType.map((filter, idx) => (
@@ -63,11 +59,11 @@ export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
                     <input
                       type='checkbox'
                       checked={filters[
-                        filtersType === types ? 'types' : filtersType === genders ? 'genders' : 'sizes'
+                        filtersType === types ? 'types' : filtersType === sexOptions ? 'sexOptions' : 'sizes'
                       ].includes(filter.key)}
                       onChange={() =>
                         handleCheckboxChange(
-                          filtersType === types ? 'types' : filtersType === genders ? 'genders' : 'sizes',
+                          filtersType === types ? 'types' : filtersType === sexOptions ? 'sexOptions' : 'sizes',
                           filter.key
                         )
                       }
