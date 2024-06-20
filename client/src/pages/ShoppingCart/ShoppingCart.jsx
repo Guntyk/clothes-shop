@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 import useShoppingCart from 'hooks/useShoppingCart';
+import { sexOptions } from 'constants/sexOptions';
 import caretRight from 'icons/caret-right.svg';
 import caretLeft from 'icons/caret-left.svg';
 import cross from 'icons/cross.svg';
@@ -87,7 +88,7 @@ export default function ShoppingCart() {
                       </div>
                       <div className='characteristics'>
                         <p>
-                          Категорія: <span className='sex'>{item.sex}</span>
+                          Категорія: <span className='sex'>{sexOptions.find(({ key }) => key === item.sex).name}</span>
                         </p>
                         <p>
                           Розмір: <span className='size'>{item.size}</span>
