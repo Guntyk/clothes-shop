@@ -1,4 +1,100 @@
 .shopping-cart-page {
-  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 3rem;
+  position: relative;
+  margin: 10rem 0 5rem;
+  font-size: 2rem;
+}
+
+.order {
+  width: 100%;
+}
+
+.shopping-cart-page .clothing-detail {
+  height: 30rem;
+}
+
+.shopping-cart-page .details {
+  width: 100%;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-item-btn {
+  padding: 0.5rem;
+  height: 3rem;
+}
+.remove-item-btn img {
+  height: 100%;
+}
+
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+}
+
+.amount-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.amount-buttons span {
+  width: 2rem;
+  text-align: center;
+}
+
+.amount-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 3rem;
+  opacity: 0.3;
+  pointer-events: none;
+  transition: 0.2s;
+}
+.amount-btn.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.buy-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: sticky;
+  top: 12.5rem;
+  right: 0;
+  padding-right: 5rem;
+  width: auto;
+  font-size: 1.6rem;
+}
+
+.buy-wrapper .title {
+  white-space: nowrap;
+}
+
+.buy-wrapper .inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.buy-wrapper input {
+  padding: 0.5rem 1rem;
+  font-size: inherit;
+  border: 0.1rem solid #eaeaea;
+}
+
+.buy-wrapper .btn {
   font-size: 2rem;
 }

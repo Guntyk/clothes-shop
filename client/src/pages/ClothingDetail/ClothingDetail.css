@@ -34,11 +34,6 @@
   height: 100%;
 }
 
-.details {
-  flex: 0 0 55%;
-  max-width: 55%;
-}
-
 .details .name {
   font-size: 3.2rem;
   margin-bottom: 1.5rem;

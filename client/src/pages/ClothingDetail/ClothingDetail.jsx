@@ -62,7 +62,7 @@ export default function ClothingDetail() {
                     Size: <span className='size'>{currentClothing.size}</span>
                   </p>
                   <p>
-                    Price: <span className='price'>${currentClothing.price.split('.')[0]}</span>
+                    Price: <span className='price'>${currentClothing.price}</span>
                   </p>
                 </div>
               </div>

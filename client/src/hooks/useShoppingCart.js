@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    setCartItems([...cartItems, { ...item, amount: 1 }]);
   };
 
   const removeFromCart = (itemId) => {

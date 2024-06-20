@@ -69,7 +69,7 @@ export default function Main() {
               <div className='name'>{item.name}</div>
               <div className='size'>{item.size}</div>
               <div className='sex'>{item.sex}</div>
-              <div className='price'>${item.price.split('.')[0]}</div>
+              <div className='price'>${item.price}</div>
             </div>
           ))
         ) : isClothesRequestLoading ? (
