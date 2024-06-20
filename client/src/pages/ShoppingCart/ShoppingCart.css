@@ -74,13 +74,20 @@
 .buy-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  justify-content: space-between;
   position: sticky;
   top: 12.5rem;
   right: 0;
   padding-right: 5rem;
   width: auto;
+  height: 80vh;
   font-size: 1.6rem;
+}
+
+.buy-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .buy-wrapper .title {

@@ -62,6 +62,11 @@ export default function ShoppingCart() {
     saveToLocalStorage(updatedOrder);
   };
 
+  const handleResetOrder = () => {
+    setOrder([]);
+    localStorage.removeItem('cart');
+  };
+
   return (
     <article className='shopping-cart-page'>
       <div className='order'>
@@ -117,15 +122,22 @@ export default function ShoppingCart() {
             ))
           : 'Корзина пуста'}
       </div>
-      <form className='buy-wrapper'>
-        <h2 className='title'>Оформити замовлення</h2>
-        <div className='inputs-wrapper'>
-          <input type='text' placeholder='Імʼя' required />
-          <input type='tel' inputMode='numeric' placeholder='Номер телефону' required />
-        </div>
-        <span className='total-price'>Сума: ${getTotalPrice()}</span>
-        <button className='btn'>Замовити</button>
-      </form>
+      <div className='buy-wrapper'>
+        <form>
+          <h2 className='title'>Оформити замовлення</h2>
+          <div className='inputs-wrapper'>
+            <input type='text' placeholder='Імʼя' required />
+            <input type='tel' inputMode='numeric' placeholder='Номер телефону' required />
+          </div>
+          <span className='total-price'>Сума: ${getTotalPrice()}</span>
+          <button className='btn'>Замовити</button>
+        </form>
+        {order.length > 0 && (
+          <button className='btn' onClick={handleResetOrder}>
+            Очистити корзину
+          </button>
+        )}
+      </div>
     </article>
   );
 }
