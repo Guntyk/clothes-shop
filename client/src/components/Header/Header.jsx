@@ -15,6 +15,9 @@ export default function Header() {
             <NavLink to='/'>Каталог</NavLink>
           </li>
           <li>
+            <NavLink to='/orders'>Замовлення</NavLink>
+          </li>
+          <li>
             <NavLink to='/cart'>Корзина</NavLink>
           </li>
         </ul>

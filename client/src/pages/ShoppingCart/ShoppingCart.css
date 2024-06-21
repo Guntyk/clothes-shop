@@ -111,11 +111,11 @@
   margin-top: 1rem;
 }
 
-.buy-wrapper .input-error {
-  border: 0.1rem solid rgb(226, 0, 0);
+.input-error {
+  border: 0.1rem solid rgb(226, 0, 0) !important;
 }
 
-.buy-wrapper .error-message {
+.error-message {
   display: block;
   margin-top: 0.25rem;
   color: rgb(226, 0, 0);

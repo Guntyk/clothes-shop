@@ -1,0 +1,71 @@
+.orders {
+  margin-top: 10rem;
+}
+
+.orders-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.order-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  width: calc(100% / 3 - 2rem);
+  font-size: 1.6rem;
+  border: 0.1rem solid #eaeaea;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.order-table {
+  margin: 1rem 0;
+}
+
+.order-table tr {
+  line-height: 1.6;
+}
+
+.order-products {
+  display: flex;
+  overflow-y: hidden;
+  gap: 0.5rem;
+}
+
+.order-product-card {
+  position: relative;
+  min-width: 9.9rem;
+  height: 10rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.order-product-card:hover {
+  transform: scale(1.05);
+}
+
+.order-product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.order-product-amount {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.25rem 0;
+  width: 1.7rem;
+  font-size: 1.2rem;
+  background: #fff;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}

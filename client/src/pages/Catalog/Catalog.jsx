@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import * as clothesSlice from '../../redux/features/clothesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import Filters from '../../components/Filters/Filters';
-import './Catalog.css';
+import Filters from 'components/Filters/Filters';
 import ClothingCard from './ClothingCard/ClothingCard';
+import './Catalog.css';
 
 export default function Catalog() {
   const dispatch = useDispatch();

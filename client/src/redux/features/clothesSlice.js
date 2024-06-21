@@ -32,7 +32,7 @@ const clothesSlice = createSlice({
       })
       .addCase(getClothes.rejected, (state, action) => {
         state.isLoading = false;
-        state.users = [];
+        state.clothes = [];
         state.error = action.payload;
       });
   },

@@ -1,8 +1,9 @@
 import { Route, Switch } from 'react-router-dom';
-import Header from './components/Header/Header';
-import Catalog from './pages/Catalog/Catalog';
-import ClothingDetail from './pages/ClothingDetail/ClothingDetail';
-import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import Header from 'components/Header/Header';
+import Catalog from 'pages/Catalog/Catalog';
+import ClothingDetail from 'pages/ClothingDetail/ClothingDetail';
+import ShoppingCart from 'pages/ShoppingCart/ShoppingCart';
+import Orders from 'pages/Orders/Orders';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path='/cart' exact>
             <ShoppingCart />
+          </Route>
+          <Route path='/orders' exact>
+            <Orders />
           </Route>
         </Switch>
       </div>

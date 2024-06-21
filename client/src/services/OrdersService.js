@@ -20,4 +20,14 @@ export default class OrdersService {
 
     return { result: orderId, error: null };
   }
+
+  static async deleteOrder(id) {
+    const [error, { data }] = await backendApi.delete(`/orders/${id}`);
+
+    if (error) {
+      return { result: null, error };
+    }
+
+    return { result: data, error: null };
+  }
 }
