@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const pool = require('./database');
+
 const clothesRoutes = require('./routes/clothes.js');
+const ordersRoutes = require('./routes/orders.js');
 
 const app = express();
 
@@ -15,6 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/clothes', clothesRoutes);
+app.use('/orders', ordersRoutes);
 
 app.listen(4000, () => {
   console.log('Server is running on port 4000');

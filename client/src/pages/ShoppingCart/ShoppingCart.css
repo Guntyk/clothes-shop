@@ -98,7 +98,6 @@
 .buy-wrapper .inputs-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   width: 100%;
 }
 
@@ -106,6 +105,20 @@
   padding: 0.5rem 1rem;
   font-size: inherit;
   border: 0.1rem solid #eaeaea;
+}
+
+.buy-wrapper .last-input {
+  margin-top: 1rem;
+}
+
+.buy-wrapper .input-error {
+  border: 0.1rem solid rgb(226, 0, 0);
+}
+
+.buy-wrapper .error-message {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgb(226, 0, 0);
 }
 
 .buy-wrapper .btn {
@@ -120,4 +133,20 @@
 .buy-btn.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.completed-order {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border: 0.1rem solid #eaeaea;
+}
+
+.completed-order span:first-child {
+  font-size: 1.8rem;
+}
+
+.completed-order b {
+  font-weight: 700;
 }
