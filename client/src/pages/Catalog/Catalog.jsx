@@ -12,11 +12,13 @@ export default function Catalog() {
   const clothesRequestError = useSelector((state) => state.clothes.error);
   const clothes = useSelector((state) => state.clothes.clothes);
 
-  const [filters, setFilters] = useState({
-    types: [],
-    sexOptions: [],
-    sizes: [],
-  });
+  const [filters, setFilters] = useState(
+    JSON.parse(window.sessionStorage.getItem('filters')) || {
+      types: [],
+      sexOptions: [],
+      sizes: [],
+    }
+  );
   const [filteredData, setFilteredData] = useState([]);
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false);
 
@@ -39,6 +41,10 @@ export default function Catalog() {
       setFilteredData(clothes.filter(matchesFilters));
     }
   }, [clothes, filters]);
+
+  useEffect(() => {
+    window.sessionStorage.setItem('filters', JSON.stringify(filters));
+  }, [filters]);
 
   useEffect(() => {
     if (clothes.length <= 1) {
