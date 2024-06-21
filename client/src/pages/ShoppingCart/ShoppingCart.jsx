@@ -103,7 +103,7 @@ export default function ShoppingCart() {
       };
 
       const result = await createNewOrder(formedOrder);
-      console.log(result);
+
       if (result) {
         setName('');
         setPhone('');
