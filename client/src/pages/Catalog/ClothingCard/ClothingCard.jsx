@@ -4,7 +4,8 @@ import { sexOptions } from 'constants/sexOptions';
 
 export default function ClothingCard({ clothing: { id, image_url, name, size, sex, price } }) {
   const { push } = useHistory();
-  const isClothingInCart = JSON.parse(localStorage.getItem('cart')).some((clothing) => clothing.id === id);
+  const savedCart = JSON.parse(localStorage.getItem('cart'));
+  const isClothingInCart = savedCart ? savedCart.some((clothing) => clothing.id === id) : false;
 
   return (
     <div className='card' onClick={() => push(`/clothing/${id}`)}>
