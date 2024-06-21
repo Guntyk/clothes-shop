@@ -50,6 +50,7 @@
   gap: 1rem;
   align-items: center;
   margin-top: 0.5rem;
+  user-select: none;
 }
 
 .amount-buttons span {

@@ -114,7 +114,7 @@ export default function ShoppingCart() {
                           </button>
                         </div>
                       </div>
-                      <span className='price'>${item.price * item.amount}</span>
+                      <span className='price'>{item.price * item.amount}₴</span>
                     </div>
                   </div>
                 </section>
@@ -130,7 +130,7 @@ export default function ShoppingCart() {
             <input type='text' placeholder='Імʼя' required />
             <input type='tel' inputMode='numeric' placeholder='Номер телефону' required />
           </div>
-          <span className='total-price'>Сума: ${getTotalPrice()}</span>
+          <span className='total-price'>Сума: {getTotalPrice()}₴</span>
           <button className={cn('btn', 'buy-btn', { active: order.length > 0 })}>Замовити</button>
         </form>
         {order.length > 0 && (

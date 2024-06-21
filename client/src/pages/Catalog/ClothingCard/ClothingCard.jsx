@@ -14,7 +14,7 @@ export default function ClothingCard({ clothing: { id, image_url, name, size, se
       <div className='name'>{name}</div>
       <div className='size'>{size}</div>
       <div className='sex'>{sexOptions.find(({ key }) => key === sex).name}</div>
-      <div className='price'>${price}</div>
+      <div className='price'>{price}₴</div>
     </div>
   );
 }

@@ -56,19 +56,20 @@ export default function ClothingDetail() {
                 <h2 className='name'>{currentClothing.name}</h2>
                 <div className='characteristics'>
                   <p>
-                    Категорія: <span className='sex'>{sexOptions.find(({ key }) => key === currentClothing.sex).name}</span>
+                    Категорія:{' '}
+                    <span className='sex'>{sexOptions.find(({ key }) => key === currentClothing.sex).name}</span>
                   </p>
                   <p>
                     Розмір: <span className='size'>{currentClothing.size}</span>
                   </p>
-                  <p>
-                    Ціна: <span className='price'>${currentClothing.price}</span>
-                  </p>
                 </div>
               </div>
-              <button className='cart-btn' onClick={handleCartChange}>
-                {isProductInCart ? 'Видалити з корзини' : 'Додати до корзини'}
-              </button>
+              <div className='order-info'>
+                <span className='price'>{currentClothing.price}₴</span>
+                <button className='cart-btn' onClick={handleCartChange}>
+                  {isProductInCart ? 'Видалити з корзини' : 'Додати до корзини'}
+                </button>
+              </div>
             </div>
           </>
         ) : isClothesRequestLoading ? (

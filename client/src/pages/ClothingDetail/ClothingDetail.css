@@ -55,6 +55,16 @@
   background: #e6e6e6;
 }
 
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.order-info .price {
+  font-size: 2.4rem;
+}
+
 .characteristics {
   display: flex;
   flex-direction: column;
