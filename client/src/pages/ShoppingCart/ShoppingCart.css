@@ -150,3 +150,12 @@
 .completed-order b {
   font-weight: 700;
 }
+
+.empty-cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 65vh;
+}

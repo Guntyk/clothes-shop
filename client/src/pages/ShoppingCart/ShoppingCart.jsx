@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 import useShoppingCart from 'hooks/useShoppingCart';
+import { Link } from 'react-router-dom';
 import OrdersService from 'services/OrdersService';
 import { sexOptions } from 'constants/sexOptions';
 import caretRight from 'icons/caret-right.svg';
@@ -122,57 +123,64 @@ export default function ShoppingCart() {
   return (
     <article className='shopping-cart-page'>
       <div className='order'>
-        {order.length > 0
-          ? order.map((item) => (
-              <React.Fragment key={item.id}>
-                <section className='clothing-detail'>
-                  <div className='img-wrapper'>
-                    <img src={item.image_url} alt={item.name} className='clothing-image' />
+        {order.length > 0 ? (
+          order.map((item) => (
+            <React.Fragment key={item.id}>
+              <section className='clothing-detail'>
+                <div className='img-wrapper'>
+                  <img src={item.image_url} alt={item.name} className='clothing-image' />
+                </div>
+                <div className='wrapper'>
+                  <div className='details'>
+                    <div className='item-header'>
+                      <h2 className='name'>{item.name}</h2>
+                      <button className='remove-item-btn' onClick={() => handleRemoveClothing(item.id)}>
+                        <img src={cross} alt='cross' />
+                      </button>
+                    </div>
+                    <div className='characteristics'>
+                      <p>
+                        Категорія: <span className='sex'>{sexOptions.find(({ key }) => key === item.sex).name}</span>
+                      </p>
+                      <p>
+                        Розмір: <span className='size'>{item.size}</span>
+                      </p>
+                    </div>
                   </div>
-                  <div className='wrapper'>
-                    <div className='details'>
-                      <div className='item-header'>
-                        <h2 className='name'>{item.name}</h2>
-                        <button className='remove-item-btn' onClick={() => handleRemoveClothing(item.id)}>
-                          <img src={cross} alt='cross' />
+                  <div className='item-footer'>
+                    <div className='amount'>
+                      <span className='amount'>Кількість:</span>
+                      <div className='amount-buttons'>
+                        <button
+                          className={cn('amount-btn', { active: item.amount > 1 })}
+                          onClick={() => handleDecreaseAmount(item.id)}
+                        >
+                          <img src={caretLeft} alt='caret left' />
+                        </button>
+                        <span>{item.amount}</span>
+                        <button
+                          className={cn('amount-btn', { active: item.amount < 10 })}
+                          onClick={() => handleIncreaseAmount(item.id)}
+                        >
+                          <img src={caretRight} alt='caret right' />
                         </button>
                       </div>
-                      <div className='characteristics'>
-                        <p>
-                          Категорія: <span className='sex'>{sexOptions.find(({ key }) => key === item.sex).name}</span>
-                        </p>
-                        <p>
-                          Розмір: <span className='size'>{item.size}</span>
-                        </p>
-                      </div>
                     </div>
-                    <div className='item-footer'>
-                      <div className='amount'>
-                        <span className='amount'>Кількість:</span>
-                        <div className='amount-buttons'>
-                          <button
-                            className={cn('amount-btn', { active: item.amount > 1 })}
-                            onClick={() => handleDecreaseAmount(item.id)}
-                          >
-                            <img src={caretLeft} alt='caret left' />
-                          </button>
-                          <span>{item.amount}</span>
-                          <button
-                            className={cn('amount-btn', { active: item.amount < 10 })}
-                            onClick={() => handleIncreaseAmount(item.id)}
-                          >
-                            <img src={caretRight} alt='caret right' />
-                          </button>
-                        </div>
-                      </div>
-                      <span className='price'>{item.price * item.amount}₴</span>
-                    </div>
+                    <span className='price'>{item.price * item.amount}₴</span>
                   </div>
-                </section>
-                <hr className='line' />
-              </React.Fragment>
-            ))
-          : 'Корзина пуста'}
+                </div>
+              </section>
+              <hr className='line' />
+            </React.Fragment>
+          ))
+        ) : (
+          <div className='empty-cart-wrapper'>
+            <span>Корзина пуста</span>
+            <Link to='/' className='btn'>
+              До каталогу
+            </Link>
+          </div>
+        )}
       </div>
       <div className='buy-wrapper'>
         <form onSubmit={handleSubmit}>
