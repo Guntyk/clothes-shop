@@ -55,6 +55,7 @@ export default function Catalog() {
         </button>
       </div>
       <Filters
+        clothes={clothes}
         filters={filters}
         setFilters={setFilters}
         isOpen={isFiltersModalOpen}

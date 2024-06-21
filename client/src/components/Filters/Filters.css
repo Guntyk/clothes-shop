@@ -81,3 +81,8 @@
 .reset-filters-btn:active {
   background: #e6e6e6;
 }
+
+label.passive {
+  opacity: 0.3;
+  pointer-events: none;
+}

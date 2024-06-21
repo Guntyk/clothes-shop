@@ -131,7 +131,7 @@ export default function ShoppingCart() {
             <input type='tel' inputMode='numeric' placeholder='Номер телефону' required />
           </div>
           <span className='total-price'>Сума: ${getTotalPrice()}</span>
-          <button className='btn'>Замовити</button>
+          <button className={cn('btn', 'buy-btn', { active: order.length > 0 })}>Замовити</button>
         </form>
         {order.length > 0 && (
           <button className='btn' onClick={handleResetOrder}>

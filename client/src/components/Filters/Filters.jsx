@@ -1,23 +1,32 @@
 import cn from 'classnames';
 import { sexOptions } from 'constants/sexOptions';
-import cross from '../../icons/cross.svg';
+import cross from 'icons/cross.svg';
 import './Filters.css';
 
-export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
-  const types = [
-    { key: 'hoodie', name: 'Худі' },
-    { key: 'coat', name: 'Кофти' },
-    { key: 't-shirt', name: 'Футболки' },
-    { key: 'pants', name: 'Штани' },
-  ];
+export default function Filters({ clothes, filters, setFilters, isOpen, setIsOpen }) {
+  const types = Array.from(new Set(clothes.map(({ type }) => type)))
+    .sort()
+    .map((type) => ({
+      key: type,
+      name: type.charAt(0).toUpperCase() + type.slice(1),
+    }));
+
   const sizes = [
+    { key: 'xxs', name: 'XXS' },
     { key: 'xs', name: 'XS' },
     { key: 's', name: 'S' },
     { key: 'm', name: 'M' },
     { key: 'l', name: 'L' },
     { key: 'xl', name: 'XL' },
     { key: 'xxl', name: 'XXL' },
+    { key: '3xl', name: '3XL' },
+    { key: '4xl', name: '4XL' },
   ];
+
+  const availableSizes = Array.from(new Set(clothes.map(({ size }) => size))).map((size) => ({
+    key: size,
+    name: size.toUpperCase(),
+  }));
 
   const handleCheckboxChange = (type, value) => {
     setFilters((prevFilters) => ({
@@ -55,7 +64,13 @@ export default function Filters({ filters, setFilters, isOpen, setIsOpen }) {
             <ul className='filters-list'>
               {filtersType.map((filter, idx) => (
                 <li key={idx}>
-                  <label>
+                  <label
+                    className={cn({
+                      passive:
+                        filtersType === sizes &&
+                        !availableSizes.some((availableSize) => availableSize.key === filter.key),
+                    })}
+                  >
                     <input
                       type='checkbox'
                       checked={filters[

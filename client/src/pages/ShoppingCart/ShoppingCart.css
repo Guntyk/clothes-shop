@@ -110,3 +110,13 @@
 .buy-wrapper .btn {
   font-size: 2rem;
 }
+
+.buy-btn {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.buy-btn.active {
+  opacity: 1;
+  pointer-events: all;
+}
