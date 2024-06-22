@@ -1,5 +1,7 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as userSlice from '../../redux/features/userSlice';
 import useShoppingCart from 'hooks/useShoppingCart';
 import { Link } from 'react-router-dom';
 import OrdersService from 'services/OrdersService';
@@ -10,13 +12,16 @@ import cross from 'icons/cross.svg';
 import './ShoppingCart.css';
 
 export default function ShoppingCart() {
+  const user = useSelector((state) => state.user.user);
+
   const { removeFromCart } = useShoppingCart();
   const [order, setOrder] = useState([]);
-  const [name, setName] = useState('');
+  const [name, setName] = useState(user?.username || '');
   const [phone, setPhone] = useState('');
   const [nameError, setNameError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
   const [completedOrderId, setCompletedOrderId] = useState(0);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart'));
@@ -106,6 +111,7 @@ export default function ShoppingCart() {
       const result = await createNewOrder(formedOrder);
 
       if (result) {
+        dispatch(userSlice.addOrderToUser({ orderId: result, userId: user.id }));
         setName('');
         setPhone('');
         handleResetOrder();

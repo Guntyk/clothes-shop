@@ -20,4 +20,14 @@ export default class UsersService {
 
     return { result: response.data, error: null };
   }
+
+  static async addOrderToUser({ orderId, userId }) {
+    const [error, response] = await backendApi.post('/users/update', { userId, orderId });
+
+    if (error) {
+      return { result: null, error: error.data };
+    }
+
+    return { result: response.data, error: null };
+  }
 }

@@ -2,7 +2,7 @@ import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import * as userSlice from './redux/features/userSlice';
-import { unprotectedPaths } from 'constants/unprotectedPaths';
+import { isAllowedPath, unprotectedPaths } from 'constants/unprotectedPaths';
 import Header from 'components/Header/Header';
 import Catalog from 'pages/Catalog/Catalog';
 import ClothingDetail from 'pages/ClothingDetail/ClothingDetail';
@@ -10,6 +10,7 @@ import ShoppingCart from 'pages/ShoppingCart/ShoppingCart';
 import OrdersPanel from 'pages/OrdersPanel/OrdersPanel';
 import Registration from 'pages/Registration/Registration';
 import Login from 'pages/Login/Login';
+import Orders from 'pages/Orders/Orders';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!isAuthenticated && !unprotectedPaths.includes(pathname)) {
+    if (!isAuthenticated && !isAllowedPath(pathname)) {
       replace('/login');
     }
   }, [pathname]);
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path='/cart' exact>
             <ShoppingCart />
+          </Route>
+          <Route path='/orders' exact>
+            <Orders />
           </Route>
           <Route path='/orders-panel' exact>
             <OrdersPanel />

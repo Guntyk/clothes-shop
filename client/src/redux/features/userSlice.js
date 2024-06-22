@@ -28,6 +28,19 @@ export const loginUser = createAsyncThunk('users/login', async (userData, { reje
   return rejectWithValue(error || 'An error occurred while user logging. Please try again later');
 });
 
+export const addOrderToUser = createAsyncThunk(
+  'users/update-order',
+  async ({ orderId, userId }, { rejectWithValue }) => {
+    const { result, error } = await UsersService.addOrderToUser({ orderId, userId });
+
+    if (result) {
+      return result;
+    }
+
+    return rejectWithValue(error || 'An error occurred while updating user orders. Please try again later');
+  }
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -36,6 +49,7 @@ const userSlice = createSlice({
       state.user = null;
       state.isAuthenticated = false;
       window.localStorage.removeItem('user');
+      window.sessionStorage.removeItem('filters');
     },
     checkAuth: (state) => {
       const user = JSON.parse(window.localStorage.getItem('user'));
@@ -75,6 +89,19 @@ const userSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.user = null;
+        state.error = action.payload;
+      })
+      .addCase(addOrderToUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addOrderToUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload;
+        state.error = null;
+        window.localStorage.setItem('user', JSON.stringify(action.payload));
+      })
+      .addCase(addOrderToUser.rejected, (state, action) => {
+        state.isLoading = false;
         state.error = action.payload;
       });
   },

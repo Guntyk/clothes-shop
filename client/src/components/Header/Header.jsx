@@ -27,14 +27,17 @@ export default function Header() {
           <li>
             <NavLink to='/'>Каталог</NavLink>
           </li>
+          <li>
+            <NavLink to='/cart'>Корзина</NavLink>
+          </li>
+          <li>
+            <NavLink to='/orders'>Мої замовлення</NavLink>
+          </li>
           {(user?.role === 'admin' || user?.role === 'superadmin') && (
             <li>
               <NavLink to='/orders-panel'>Панель замовлень</NavLink>
             </li>
           )}
-          <li>
-            <NavLink to='/cart'>Корзина</NavLink>
-          </li>
         </ul>
       </nav>
       <div className='account'>

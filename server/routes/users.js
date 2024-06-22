@@ -59,4 +59,36 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/update', async (req, res) => {
+  const { userId, orderId } = req.body;
+
+  try {
+    const findUserQuery = 'SELECT orders FROM users WHERE id = $1';
+    const userResult = await pool.query(findUserQuery, [userId]);
+
+    if (userResult.rowCount === 0) {
+      return res.status(404).json({ message: 'Користувач не знайдений' });
+    }
+
+    const user = userResult.rows[0];
+    const updatedOrders = user.orders ? [...user.orders, orderId] : [orderId];
+
+    const updateUserQuery = `
+      UPDATE users
+      SET orders = $1
+      WHERE id = $2
+      RETURNING *
+    `;
+    const updateUserResult = await pool.query(updateUserQuery, [updatedOrders, userId]);
+
+    res.status(200).json({
+      message: 'Замовлення додано успішно',
+      data: updateUserResult.rows[0],
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: 'Error adding order to user', error: err.message });
+  }
+});
+
 module.exports = router;

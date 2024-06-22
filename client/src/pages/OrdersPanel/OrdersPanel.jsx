@@ -35,7 +35,7 @@ export default function OrdersPanel() {
     <div className='orders'>
       {user?.role === 'admin' || user?.role === 'superadmin' ? (
         <>
-          <h1 className='title'>Замовлення</h1>
+          <h1 className='title'>Панель замовлень</h1>
           <ul className='orders-list'>
             {orders.length > 0 ? (
               orders.map(({ id, name, phone, price, products }) => (
@@ -80,7 +80,9 @@ export default function OrdersPanel() {
             ) : isOrdersRequestLoading ? (
               <span>Завантаження...</span>
             ) : (
-              <span>Замовлення відсутні</span>
+              <div className='empty-cart-wrapper'>
+                <span>Замовлення відсутні</span>
+              </div>
             )}
           </ul>
         </>

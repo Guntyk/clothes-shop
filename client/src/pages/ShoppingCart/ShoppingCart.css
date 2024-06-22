@@ -156,6 +156,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   height: 65vh;
+}
+
+.orders .empty-cart-wrapper {
+  font-size: 1.8rem;
+  width: 100%;
 }
