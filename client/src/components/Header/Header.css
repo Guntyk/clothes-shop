@@ -27,6 +27,12 @@
   height: 100%;
 }
 
+.navigation-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .navigation-links {
   display: flex;
   gap: 3rem;
@@ -49,4 +55,17 @@
 }
 .navigation-links li:hover::before {
   width: 100%;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+}
+
+.log-out-btn {
+  display: flex;
+  align-items: center;
+  width: 1.5rem;
 }

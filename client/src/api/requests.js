@@ -10,5 +10,5 @@ export const backendApi = axios.create({
 
 backendApi.interceptors.response.use(
   (response) => [null, response.data],
-  (error) => [error, null]
+  (error) => [error.response, null]
 );

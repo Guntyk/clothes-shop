@@ -5,6 +5,7 @@ const pool = require('./database');
 
 const clothesRoutes = require('./routes/clothes.js');
 const ordersRoutes = require('./routes/orders.js');
+const usersRoutes = require('./routes/users.js');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.use('/clothes', clothesRoutes);
 app.use('/orders', ordersRoutes);
+app.use('/users', usersRoutes);
 
 app.listen(4000, () => {
   console.log('Server is running on port 4000');
