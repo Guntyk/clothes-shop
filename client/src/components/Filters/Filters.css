@@ -39,7 +39,7 @@
 }
 
 .overflow.opened .filters {
-  left: -2%;
+  left: -2rem;
 }
 
 .close-btn {

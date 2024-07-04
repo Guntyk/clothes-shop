@@ -19,8 +19,7 @@ export default function Header() {
   return (
     <header className='header'>
       <Link className='logo' to='/'>
-        <img src={logo} alt='logo' />
-        Одеж
+        VENDRE.
       </Link>
       <nav className='navigation-bar'>
         <ul className='navigation-links'>
