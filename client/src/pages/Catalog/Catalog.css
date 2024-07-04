@@ -17,7 +17,6 @@
 .clothes-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .card {

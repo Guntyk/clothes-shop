@@ -67,14 +67,16 @@ export default function Catalog() {
         isOpen={isFiltersModalOpen}
         setIsOpen={setIsFiltersModalOpen}
       />
-      <div className='clothes-wrapper'>
-        {filteredData.length > 0 ? (
-          filteredData.map((item) => <ClothingCard clothing={item} key={item.id} />)
-        ) : isClothesRequestLoading ? (
-          <p className='no-results'>Завантаження</p>
-        ) : (
-          <p className='no-results'>Нічого не знайдено</p>
-        )}
+      <div className='clothes-view'>
+        <div className='clothes-wrapper'>
+          {filteredData.length > 0 ? (
+            filteredData.map((item) => <ClothingCard clothing={item} key={item.id} />)
+          ) : isClothesRequestLoading ? (
+            <p className='no-results'>Завантаження</p>
+          ) : (
+            <p className='no-results'>Нічого не знайдено</p>
+          )}
+        </div>
       </div>
     </article>
   );

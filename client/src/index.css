@@ -174,3 +174,11 @@ html {
 .container {
   padding: 0 2rem;
 }
+
+input:focus {
+  outline: 0.1rem solid rgb(85, 179, 255);
+}
+
+button:focus {
+  border: 0.1rem solid rgb(85, 179, 255);
+}
